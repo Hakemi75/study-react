@@ -1,13 +1,21 @@
 'use client';
 import Image from "next/image";
-import { Links } from "../components/links"
-import { Headline } from "../components/headline"
-
+import { Links } from "../components/links";
+import { Headline } from "../components/headline";
+import { useEffect } from "react";
 
 export function Main(props) {
 const handleClick = () => {
   alert('クリック');
 }
+// useEffect(() => {
+//   console.log("マウント時")
+//   document.body.style.backgroundColor="lightblue";
+//   return () => {
+//     console.log("アンマウント時")
+//     document.body.style.backgroundColor="";
+//   };
+// }, []);
   return (
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
         <Image
