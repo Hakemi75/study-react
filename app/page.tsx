@@ -2,7 +2,7 @@
 import { Footer } from "../components/footer"
 import { Main } from "../components/main"
 import { Header } from "../components/header"
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 
 
@@ -15,16 +15,23 @@ import { useCallback, useEffect } from "react";
 //       }
 
 export default function Home(props) {
-const handleClick = () => {
-  alert('クリック');
+const [count, setFoo] = useState(10);
+
+const handleClick2 = () => {
+  // alert('クリック');
+  // foo = foo + 1
+  // console.log(foo);
+  setFoo(count => count + 1);
+  setFoo(count => count + 1);
+  // setFoo(foo => foo + 1);
 };
-const foo = 1;
-const handleClick2 = useCallback((e) => {
-        // e.preventDefault();
-        console.log(e.target.href);
-        e.preventDefault();
-        alert(foo);
-      }, []);
+// const handleClick = useCallback((e) => {
+//         // e.preventDefault();
+//         // console.log(e.target.href);
+//         // e.preventDefault();
+//         // alert(foo);
+//         // foo = foo + 1
+//       }, []);
 useEffect(() => {
   console.log("マウント時")
   document.body.style.backgroundColor="lightblue";
@@ -37,10 +44,11 @@ useEffect(() => {
 
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+      <h1>{count}</h1>
       <Header />
-      <a href="/products" onClick={handleClick2}>
+      <button href="/products" onClick={handleClick2}>
       ボタン
-      </a>
+      </button>
       <Main page="index"/>
       <Footer/>
     </div>
