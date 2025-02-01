@@ -1,6 +1,6 @@
 import '../styles/globals.css'
 
-export function MyApp({ Component, pageProps }) {
+export default function MyApp({ Component, pageProps }) {
   return (
     <div>
       konnitich
