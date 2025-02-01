@@ -15,25 +15,27 @@ import { useCallback, useEffect, useState } from "react";
 //       }
 
 export default function Home(props) {
-const [count, setFoo] = useState(10);
+const [count, setCount] = useState(1);
 
-const handleClick2 = () => {
+const handleClick2 = useCallback((e) => {
+if (count < 10) {
   // alert('クリック');
   // foo = foo + 1
-  // console.log(foo);
-  setFoo(count => count + 1);
-  setFoo(count => count + 1);
+    console.log(count);
+    setCount((count) => count + 1);
+  // setFoo(count => count + 1);
   // setFoo(foo => foo + 1);
 };
+}, [count]);
 // const handleClick = useCallback((e) => {
-//         // e.preventDefault();
-//         // console.log(e.target.href);
-//         // e.preventDefault();
-//         // alert(foo);
-//         // foo = foo + 1
+//         e.preventDefault();
+//         console.log(e.target.href);
+//         e.preventDefault();
+//         alert(foo);
+//         foo = foo + 1
 //       }, []);
 useEffect(() => {
-  console.log("マウント時")
+  console.log(`マウント時:${count}`)
   document.body.style.backgroundColor="lightblue";
   return () => {
     console.log("アンマウント時")
