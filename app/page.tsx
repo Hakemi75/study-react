@@ -18,7 +18,13 @@ export default function Home(props:any) {
 const [count, setCount] = useState(1);
 const [text, setText] = useState("");
 const [isShow, setIsShow] = useState(true);
-
+  if (prevArray.some(item => item === text)){
+    alert("同じ要素がすでに存在します。")
+    return prevArray;
+  }
+    return [...prevArray, text];
+  });
+}, [text])
 const handleClick2 = useCallback((e:any) => {
 if (count < 10) {
   // alert('クリック');
